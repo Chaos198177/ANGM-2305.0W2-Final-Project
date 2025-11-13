@@ -18,8 +18,7 @@ def main():
         else:
             print("The specified file path does NOT exist. Please try again!")
     elif images == 'images'.casefold():
-        file_path_multiple = input("Please upload your images here! \
-        Please ensure to include the full filepath from the main directory! ")
+        file_path_multiple = input("Please upload your images here! Please ensure to include the full filepath from the main directory Make sure to use backslashes (case sensitive)! ")
         if os.path.exists(file_path_multiple):
             type_multiple = input("What type of format would you like to convert your images to? Please select from the following options: \nPNG \nJPEG" 
         "\nHEIC \nGIF \nMOV \nMP4 \n \n").casefold()
