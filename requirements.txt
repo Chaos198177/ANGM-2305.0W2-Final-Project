@@ -1,0 +1,6 @@
+Pillow
+Glob
+Os
+Moviepy
+Tqdm
+Cowsay
