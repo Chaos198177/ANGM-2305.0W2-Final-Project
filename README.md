@@ -8,7 +8,7 @@ GitHub Repo: <https://github.com/Chaos198177/ANGM-2305.0W2-Final-Project.git>
 
 ## Description
 ### This program will take an image or series of images based on the user's input and convert it into any available format based on the user's wishes. It will then store it in the original folder under a new, recognizable name. 
-Some research that I had to do in advance were the following:
+#### Some research that I had to do in advance were the following:
 - How to accept a file path from a user's input. It was challenging to figure out at first, but after much trial and error, I managed to get it. This lines up with converting an entire folder of images.
 - How to implement cowsay into the user input. I did not want a simple, boring-looking program. While cowsay does not have the capability to accept user inputs, I was able to work around it and display the program's message in cowsay and accept the user input in another line beginning in ">"
 - How to implement a progress bar for "MP4" conversions. I used tqdm to achieve this. It uses len and a counter.
