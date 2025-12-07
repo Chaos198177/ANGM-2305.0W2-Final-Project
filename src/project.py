@@ -11,7 +11,7 @@ def main():
         "Are you uploading an image or series of images? ")
 
     if images == 'image':
-        file_path_single = cowsay_input("Please upload your image here!\n Include the full filepath with backslashes (case sensitive)! ")
+        file_path_single = cowsay_input("Please upload your image here!\n Include the full filepath with back(/)slashes (case sensitive)! ")
         if os.path.exists(file_path_single):
             type_single = cowsay_input("What type of format would you like to convert\nyour image to? Please choose from the following\noptions!\n\n"
                 "PNG\nJPEG").casefold()
@@ -24,7 +24,7 @@ def main():
             cowsay.cow("The specified file path does NOT exist!")
 
     elif images == 'images':
-        file_path_multiple = cowsay_input("Please upload your images directory here! Include the full filepath with backslashes\n(case sensitive)! ")
+        file_path_multiple = cowsay_input("Please upload your images directory here! Include the full filepath with back(/)slashes\n(case sensitive)! ")
         if os.path.exists(file_path_multiple):
             type_multiple = cowsay_input("What type of format would you like to convert\nyour images to? Please choose from the following\noptions!\n\n"
                 "PNG\nJPEG\nGIF\nMP4").casefold()
