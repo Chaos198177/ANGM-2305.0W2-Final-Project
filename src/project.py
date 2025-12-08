@@ -11,7 +11,7 @@ def main():
         "Are you uploading an image or series of images? ")
 
     if images == 'image':
-        file_path_single = cowsay_input("Please upload your image here!\n Include the full filepath with back(/)slashes (case sensitive)! ")
+        file_path_single = cowsay_input("Please upload your image here!\n Include the full filepath with front(/)slashes (case sensitive)! ")
         if os.path.exists(file_path_single):
             type_single = cowsay_input("What type of format would you like to convert\nyour image to? Please choose from the following\noptions!\n\n"
                 "PNG\nJPEG").casefold()
@@ -23,8 +23,17 @@ def main():
         else:
             cowsay.cow("The specified file path does NOT exist!")
 
+        if not os.path.isfile(file_path_single):
+            cowsay.cow("The specified path is NOT a file! Please try again with a single image file!")
+
+        ext = os.path.splitext(file_path_single)[1].lower()
+        supported_ext = {'.png', '.jpg', '.jpeg'}
+        if ext not in supported_ext:
+            cowsay.cow(f"Sorry! {ext or 'no extension'} files are not supported! This\nprogram supports: {', '.join(supported_ext)} files only!")
+            return
+
     elif images == 'images':
-        file_path_multiple = cowsay_input("Please upload your images directory here! Include the full filepath with back(/)slashes\n(case sensitive)! ")
+        file_path_multiple = cowsay_input("Please upload your images directory here! Include the full filepath with front(/)slashes\n(case sensitive)! ")
         if os.path.exists(file_path_multiple):
             type_multiple = cowsay_input("What type of format would you like to convert\nyour images to? Please choose from the following\noptions!\n\n"
                 "PNG\nJPEG\nGIF\nMP4").casefold()
@@ -50,6 +59,18 @@ def main():
             cowsay.cow("The specified file path does NOT exist!\nPlease try again!")
     else:
         cowsay.cow("Sorry! That format is NOT accepted!")
+
+    if not os.path.isdir(file_path_multiple):
+        cowsay.cow("The specified path is NOT a directory! Please try again with a folder containing supporting images!")
+
+    exts = {".png", ".jpg", ".jpeg"}
+    img_files = os.listdir(file_path_multiple)
+    supported_img = [f for f in img_files if os.path.splitext(f)[1].lower() in exts]
+
+    if not supported_img:
+        cowsay.cow(f"Sorry! {exts or 'no extension'} files are not supported! This program supports: {', '.join(supported_img)} files only!")
+        return
+
 
 def cowsay_input(message):
     cowsay.kitty(message)
