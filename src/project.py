@@ -112,7 +112,7 @@ def convert_images_in_folder(image_folder, output_format):
                 converted_count += 1
             except Exception as e:
                 continue
-        cowsay.turtle(f"Successfully converted {converted_count} of {len(img_files)} images to {output_format.upper()} format.")
+        cowsay.turtle(f"Successfully converted {converted_count} of {len(img_files)} images to {output_format.upper()}\nformat.")
     except Exception as e:
         cowsay.cow(f"An error occurred: {e}")
 
